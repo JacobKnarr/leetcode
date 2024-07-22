@@ -73,13 +73,7 @@ function runTests() {
     for (const test of tests) {
         const output = romanToInt(test.input);
 
-        if (
-            test.output === output
-        ) {
-            console.log("success");
-        } else {
-            console.log("fail");
-        }
+        console.log(test.output === output ? "success" : "failure");
     }
 }
 
