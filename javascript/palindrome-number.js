@@ -1,3 +1,5 @@
+const { runTests } = require("./test/runners");
+
 /**
  * @param {number} x
  * @return {boolean}
@@ -37,28 +39,26 @@ var isPalindrome = function(x) {
     return reverse === x;
 };
 
-function runTests() {
-    const tests = [
-        {
-            input: 121,
-            output: true
+
+const tests = [
+    {
+        params: {
+            input: 121
         },
-        {
-            input: -121,
-            output: false
+        output: true
+    },
+    {
+        params: {
+            input: -121
         },
-        {
-            input: 10,
-            output: false
-        }
-    ];
-
-
-    for (const test of tests) {
-        const output = isPalindrome(test.input);
-
-        console.log(test.output === output ? "success" : "failure");
+        output: false
+    },
+    {
+        params: {
+            input: 10
+        },
+        output: false
     }
-}
+];
 
-runTests();
+runTests(tests, isPalindrome);
