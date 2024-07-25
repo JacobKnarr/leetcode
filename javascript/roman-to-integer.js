@@ -1,3 +1,5 @@
+const { runTests } = require("./test/runners");
+
 /**
  * @param {string} s
  * @return {number}
@@ -52,29 +54,25 @@ var romanToInt = function(s) {
     return total;
 };
 
-
-function runTests() {
-    const tests = [
-        {
-            input: "III",
-            output: 3
+const tests = [
+    {
+        params: {
+            input: "III"
         },
-        {
-            input: "LVIII",
-            output: 58
+        output: 3
+    },
+    {
+        params: {
+            input: "LVIII"
         },
-        {
-            input: "MCMXCIV",
-            output: 1994
-        }
-    ];
-
-
-    for (const test of tests) {
-        const output = romanToInt(test.input);
-
-        console.log(test.output === output ? "success" : "failure");
+        output: 58
+    },
+    {
+        params: {
+            input: "MCMXCIV"
+        },
+        output: 1994
     }
-}
+];
 
-runTests();
+runTests(tests, romanToInt);

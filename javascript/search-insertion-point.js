@@ -1,3 +1,5 @@
+const { runTests } = require("./test/runners");
+
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -46,36 +48,28 @@ const searchInsertRecusive = (nums, target) => {
 
 const tests = [
     {
-        target: 5,
-        nums: [1,3,5,6],
-        result: 2
+        params: {
+            nums: [1,3,5,6],
+            target: 5
+        },
+        output: 2
     },
     {
-        target: 2,
-        nums: [1,3,5,6],
-        result: 1
+        params: {
+            nums: [1,3,5,6],
+            target: 2
+        },
+        output: 1
     },
     {
-        target: 7,
-        nums: [1,3,5,6],
-        result: 4
+        params: {
+            nums: [1,3,5,6],
+            target: 7
+        },
+        output: 4
     }
 ];
 
-function runTests(validator) {
-    for (const test of tests) {
-        const result = validator(test.nums, test.target);
 
-        if (
-            test.result[0] == result[0] &&
-            test.result[1] == result[1]
-        ) {
-            console.log("success");
-        } else {
-            console.log("fail");
-        }
-    }
-}
-
-runTests(searchInsert);
-runTests(searchInsertRecusive);
+runTests(tests, searchInsert);
+runTests(tests, searchInsertRecusive);

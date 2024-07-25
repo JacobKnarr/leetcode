@@ -1,3 +1,5 @@
+const { runTests } = require("./test/runners");
+
 /**
  * @param {string} s
  * @return {boolean}
@@ -25,28 +27,25 @@ var isValid = function(s) {
     return stack.length === 0;
 };
 
-function runTests() {
-    const tests = [
-        {
-            input: "()",
-            output: true
+const tests = [
+    {
+        params: {
+            input: "()"
         },
-        {
-            input: "()[]{}",
-            output: true
+        output: true
+    },
+    {
+        params: {
+            input: "()[]{}"
         },
-        {
-            input: "(]",
-            output: false
-        }
-    ];
-
-
-    for (const test of tests) {
-        const output = isValid(test.input);
-
-        console.log(test.output === output ? "success" : "failure");
+        output: true
+    },
+    {
+        params: {
+            input: "(]"
+        },
+        output: false
     }
-}
+];
 
-runTests();
+runTests(tests, isValid);

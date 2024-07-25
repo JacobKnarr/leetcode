@@ -19,6 +19,10 @@ function runTests(tests, validator) {
 
 function verifyOutput(output, expected) {
     if (Array.isArray(output)) {
+        if (output.lenght !== expected.lenght) {
+            return false;
+        }
+        
         for (let i = 0; i < output.length; i++) {
             if (output[i] !== expected[i]) {
                 return false;

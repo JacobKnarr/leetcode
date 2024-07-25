@@ -1,3 +1,5 @@
+const { runTests } = require("./test/runners");
+
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -17,39 +19,28 @@ var twoSum = function(nums, target) {
     return [0, 0];
 };
 
-
-function runTests() {
-    const tests = [
-        {
+const tests = [
+    {
+        params: {
             nums: [2,7,11,15],
-            target: 9,
-            result: [0,1]
+            target: 9
         },
-        {
-            target: 6,
+        output: [0,1]
+    },
+    {
+        params: {
             nums: [3,2,4],
-            result: [1,2]
+            target: 6
         },
-        {
-            target: 6,
+        output: [1,2]
+    },
+    {
+        params: {
             nums: [3,3],
-            result: [0,1]
-        }
-    ];
-
-
-    for (const test of tests) {
-        const result = twoSum(test.nums, test.target);
-
-        if (
-            test.result[0] == result[0] &&
-            test.result[1] == result[1]
-        ) {
-            console.log("success");
-        } else {
-            console.log("fail");
-        }
+            target: 6
+        },
+        output: [0,1]
     }
-}
+];
 
-runTests();
+runTests(tests, twoSum);
