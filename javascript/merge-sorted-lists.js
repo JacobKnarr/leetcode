@@ -1,3 +1,5 @@
+const { runTests } = require("./test/runners");
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -6,9 +8,11 @@
  * }
  */
 
-function ListNode(val, next) {
-    this.val = (val===undefined ? 0 : val)
-    this.next = (next===undefined ? null : next)
+class ListNode {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
 }
 
 const arrayToList = (arr) => {
@@ -61,7 +65,7 @@ const mergeTwoLists = (list1, list2) => {
     return sorted.next;
 };
 
-const mergeTwoListsRecusive = (list1, list2) => {
+const mergeTwoListsRecursive = (list1, list2) => {
     if (!list1 || !list2) {
         return list1 ? list1 : list2;
     }
@@ -70,54 +74,37 @@ const mergeTwoListsRecusive = (list1, list2) => {
         [list1, list2] = [list2, list1];
     }
 
-    list1.next = mergeTwoLists(list1.next, list2);
+    list1.next = mergeTwoListsRecursive(list1.next, list2);
 
-    return list1;   
+    return list1;
 };
 
-function runTests() {
-    const tests = [
-        {
-            list1: [1,2,4],
-            list2: [1,3,4],
-            output: [1,1,2,3,4,4]
+
+const tests = [
+    {
+        params: {
+            list1: arrayToList([1,2,4]),
+            list2: arrayToList([1,3,4])
         },
-        {
-            list1: [],
-            list2: [],
-            output: []
+        output: [1,1,2,3,4,4]
+    },
+    {
+        params: {
+            list1: arrayToList([]),
+            list2: arrayToList([])
         },
-        {
-            list1: [],
-            list2: [0],
-            output: [0]
-        }
-    ];
-
-
-    for (const test of tests) {
-        const list1 = arrayToList(test.list1);
-        const list2 = arrayToList(test.list2);
-        const output = mergeTwoLists(list1, list2);
-        const outputArray = listToArray(output);
-
-        
-        if (outputArray.length !== test.output.length) {
-            console.log("failure");
-            continue;
-        }
-
-        let result = true;
-
-        for (let i = 0; i < outputArray.length; i++) {
-            if (outputArray[i] !== test.output[i]) {
-                result = false;
-                break;
-            }
-        }
-
-        console.log(result ? "success" : "failure");
+        output: []
+    },
+    {
+        params: {
+            list1: arrayToList([]),
+            list2: arrayToList([0])
+        },
+        output: [0]
     }
-}
+];
 
-runTests();
+runTests(tests, mergeTwoLists, listToArray);
+
+// Does not work, list head points to itself for some reason
+// runTests(tests, mergeTwoListsRecursive, listToArray);

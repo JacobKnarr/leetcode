@@ -5,9 +5,12 @@
  * - input, target, output(s)
  */
 
-function runTests(tests, validator) {
+function runTests(tests, validator, converter = null) {
     for (const test of tests) {
-        const output = validator(...Object.values(test.params));
+        let output = validator(...Object.values(test.params));
+        if (converter) {
+            output = converter(output);
+        }
 
         if (verifyOutput(output, test.output)) {
             console.log("success");
@@ -19,7 +22,7 @@ function runTests(tests, validator) {
 
 function verifyOutput(output, expected) {
     if (Array.isArray(output)) {
-        if (output.lenght !== expected.lenght) {
+        if (output.length !== expected.length) {
             return false;
         }
         
