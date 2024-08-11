@@ -27,27 +27,24 @@ function arrayToTree(arr) {
     const nodes = [root];
 
     let currentNode = 0;
-    let current = 1;
 
-    while (current < arr.length) {
+    for (let i = 1; i < arr.length; i++) {
         const node = nodes[currentNode];
-        
-        // add left child node
-        if (arr[current]) {
-            node.left = new TreeNode(arr[current]);
-            nodes.push(node.left);
-        }
-        current += 1;
-                
-        // add right child node
-        if (current < arr.length && arr[current]) {
-            node.right = new TreeNode(arr[current]);
-            nodes.push(node.right);
-        }
-        current += 1;
+        let child = "left";
 
-        // move to next node in tree (BFS)
-        currentNode += 1;
+        // right child node
+        if (i % 2 === 0) {
+            child = "right";
+
+            // move to next node in tree (BFS)
+            currentNode += 1;
+        }
+        
+        // right child node
+        if (arr[i]) {
+            node[child] = new TreeNode(arr[i]);
+            nodes.push(node[child]);
+        }
     }
 
     return root;
