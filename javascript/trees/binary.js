@@ -15,9 +15,25 @@ class TreeNode  {
     }
 }
 
+// ENUM for the different traversal types
+const traversals = Object.freeze({
+    BFS: {
+        traverse: traverseBFS
+    },
+    PREORDER: {
+        traverse: traversePreorder
+    },
+    INORDER: {
+        traverse: traverseInorder
+    },
+    POSTORDER: {
+        traverse: traversePostorder
+    }
+});
+
 
 /**
- * @param {number[]} array
+ * @param {number[]} arr The array representation of the tree
  * @return {TreeNode} root
  */
 function arrayToTree(arr) {
@@ -50,8 +66,75 @@ function arrayToTree(arr) {
     return root;
 }
 
+/**
+ * @param {Enumerator} traversal The tree traversal method
+ * @param {TreeNode} root The tree root
+ * @return {number[]} The array representation of the tree
+ */
+function treeToArray(traversal, root) {
+    const treeArray = [];
+
+    if (!traversal) {
+        traversal = traversals.BFS;
+    }
+
+    traversal.traverse(root, treeArray);
+
+    return treeArray;
+}
+
+/**
+ * TODO: Need to implement BFS traversal
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+function traverseBFS(node, treeArray) {
+    if (!node) return;
+
+    treeArray.push(node.val);
+    traverseBFS(node.left, treeArray);
+    traverseBFS(node.right, treeArray);
+}
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+function traversePreorder(node, treeArray) {
+    if (!node) return;
+
+    treeArray.push(node.val);
+    traversePreorder(node.left, treeArray);
+    traversePreorder(node.right, treeArray);
+}
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+function traverseInorder(node, treeArray) {
+    if (!node) return;
+
+    traverseInorder(node.left, treeArray);
+    treeArray.push(node.val);
+    traverseInorder(node.right, treeArray);
+}
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+function traversePostorder(node, treeArray) {
+    if (!node) return;
+
+    traversePostorder(node.left, treeArray);
+    traversePostorder(node.right, treeArray);
+    treeArray.push(node.val);
+}
 
 module.exports = {
     TreeNode,
-    arrayToTree
+    traversals,
+    arrayToTree,
+    treeToArray
 };

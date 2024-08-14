@@ -22,20 +22,20 @@ const tests = [
         params: {
             root: arrayToTree([1,null,2,3])
         },
-        output: [1,3,2]
+        output: [1,2,3]
     },
     {
         params: {
             root: arrayToTree([5,4,7,3,null,2,null,-1,null,9])
         },
-        output: [-1,3,4,5,9,2,7]
+        output: [5,4,3,-1,7,2,9]
     },
     {
         params: {
             root: arrayToTree([1,2,3,4,5,6])
         },
-        output: [4,2,5,1,6,3]
+        output: [1,2,4,5,3,6]
     }
 ];
 
-runTests(tests, treeToArray.bind(null, traversals.INORDER));
+runTests(tests, treeToArray.bind(null, traversals.PREORDER));
