@@ -84,16 +84,28 @@ function treeToArray(traversal, root) {
 }
 
 /**
- * TODO: Need to implement BFS traversal
  * @param {TreeNode} root
  * @return {number[]}
  */
 function traverseBFS(node, treeArray) {
     if (!node) return;
 
-    treeArray.push(node.val);
-    traverseBFS(node.left, treeArray);
-    traverseBFS(node.right, treeArray);
+    const nodes = [node];
+
+    while (nodes.length) {
+        const current = nodes.shift();
+        
+        treeArray.push(current ? current.val : null);
+        
+        if (!current) continue;
+
+        nodes.push(current.left);
+        nodes.push(current.right);
+    }
+
+    while (treeArray[treeArray.length - 1] === null) {
+        treeArray.pop();
+    }
 }
 
 /**
