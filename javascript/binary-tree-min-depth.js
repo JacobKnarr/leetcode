@@ -23,6 +23,9 @@ function minDepthRecursive(root) {
 };
 
 /**
+ * Given the root of a binary tree, determine its minimum depth.
+ * https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+ * 
  * @param {TreeNode} root Tree root
  * @return {number} The minimum depth of the tree
  */

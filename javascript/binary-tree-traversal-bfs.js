@@ -5,6 +5,13 @@ const {
     treeToArray
 } = require("./trees/binary");
 
+/**
+ * Given the root of a binary tree, return the breadth-first search traversal of its nodes' values.
+ * 
+ * @param {TreeNode} root The root node of the tree
+ * @return {number[]} The array of node values representing the tree's BFS traversal
+ */
+
 const tests = [
     {
         params: {

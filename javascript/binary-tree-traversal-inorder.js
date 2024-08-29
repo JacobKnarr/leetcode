@@ -5,6 +5,15 @@ const {
     treeToArray
 } = require("./trees/binary");
 
+
+/**
+ * Given the root of a binary tree, return the inorder traversal of its nodes' values.
+ * https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+ * 
+ * @param {TreeNode} root The root node of the tree
+ * @return {number[]} The array of node values representing the tree's inorder traversal
+ */
+
 const tests = [
     {
         params: {

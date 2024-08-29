@@ -1,10 +1,13 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {string} s
- * @return {boolean}
+ * Determine if the input string of parentheses is valid.
+ * https://leetcode.com/problems/valid-parentheses/description/
+ * 
+ * @param {string} s The string of parentheses to validate\
+ * @return {boolean} True if parentheses are valid, false otherwise.
  */
-var isValid = function(s) {
+function isValid(s) {
     if (!s || s.length % 2 !== 0) {
         return false;
     }

@@ -5,6 +5,9 @@ const {
 } = require("./trees/binary");
 
 /**
+ * Given the root of a binary tree, return its maximum depth.
+ * https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+ * 
  * @param {TreeNode} root Tree root
  * @return {number} The maximum depth of the tree
  */
@@ -17,10 +20,6 @@ function maxDepthRecursive(root) {
     return 1 + Math.max(leftDepth, rightDepth);
 };
 
-/**
- * @param {TreeNode} root Tree root
- * @return {number} The maximum depth of the tree
- */
 function maxDepthIterative(root) {
     if (!root) return 0;
 

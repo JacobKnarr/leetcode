@@ -1,26 +1,14 @@
 const { runTests } = require("./test/runners");
 
 /**
+ * Given an array of integers, representing prices for a given day,
+ * determine the maximum profit that can be achieved.
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+ * 
  * @param {number[]} prices The prices of stock on a given day
- * @return {number} The day when max profit can be achieved
+ * @return {number} The max profit that can be achieved
  */
 function maxProfit(prices) {
-    // let buy = prices[0];
-    // let profit = 0;
-
-    // for (let i = 1; i < prices.length; i++) {
-    //     // Update buy if lower
-    //     buy = Math.min(buy, prices[i]);
-
-    //     // Update profit if greater
-    //     profit = Math.max(profit, prices[i] - buy);
-    // }
-
-    // return profit;
-
-
-    // Sliding window
-
     let left = 0;
     let right = 1;
     let maxProfit = 0;

@@ -5,10 +5,13 @@ const {
 } = require("./trees/binary");
 
 /**
+ * Given the root of a binary tree, determine if it symmetric.
+ * https://leetcode.com/problems/symmetric-tree/description/
+ * 
  * @param {TreeNode} root Tree root
  * @return {boolean} True if children trees are symmetric, otherwise false
  */
-var isSymmetric = function(root) {
+function isSymmetric(root) {
     if (!root) return false;
 
     return isSymmetricHelper(root.left, root.right);

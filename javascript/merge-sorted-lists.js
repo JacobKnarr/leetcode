@@ -6,11 +6,14 @@ const {
 } = require("./linked-lists/singly-linked");
 
 /**
- * @param {ListNode} list1
- * @param {ListNode} list2
- * @return {ListNode}
+ * Given the heads of two sorted linked lists, merge them into one.
+ * https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * 
+ * @param {ListNode} list1 The head of the first sorted linked list
+ * @param {ListNode} list2 The head of the second sorted linked list
+ * @return {ListNode} The head of the merged sorted linked list
  */
-const mergeTwoLists = (list1, list2) => {
+function mergeTwoLists(list1, list2) {
     const sorted = new ListNode;
     let current = sorted;
     
@@ -31,7 +34,7 @@ const mergeTwoLists = (list1, list2) => {
     return sorted.next;
 };
 
-const mergeTwoListsRecursive = (list1, list2) => {
+function mergeTwoListsRecursive(list1, list2) {
     if (!list1 || !list2) {
         return list1 ? list1 : list2;
     }

@@ -1,10 +1,14 @@
 const { runTests } = require("./test/runners");
 
 /**
+ * Given a non-negative integer, return the square root
+ * rounded down to the nearest integer.
+ * https://leetcode.com/problems/sqrtx/description/
+ * 
  * @param {number} x
  * @return {number}
  */
-var mySqrt = function(x) {
+function mySqrt(x) {
     if (x <= 1) return x;
 
     let start = 1;

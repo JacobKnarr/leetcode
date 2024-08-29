@@ -1,8 +1,12 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {string} s The string to verify.
- * @return {boolean} True if the string s is a palindrome, false otherwise.
+ * Given a string, determine if its case-insensitive alphanumeric
+ * characters form a palindrome.
+ * https://leetcode.com/problems/valid-palindrome/description/
+ * 
+ * @param {string} s The string to verify
+ * @return {boolean} True if the string s is a palindrome, false otherwise
  */
 function isValid(s) {
     if (!s) return false;

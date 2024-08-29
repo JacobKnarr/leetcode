@@ -1,11 +1,15 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
+ * Find the indices of the two numbers that sum to the target
+ * https://leetcode.com/problems/two-sum/description/
+ * 
+ * @param {number[]} nums The array of integers to use
+ * @param {number} target The target sum for two integers
+ * @return {number[]} The array of two indices of integers
+ *                      from nums that sum to target
  */
-var twoSum = function(nums, target) {
+function twoSum(nums, target) {
     const indexMap = new Map();
 
     for (let i = 0; i < nums.length; i++) {

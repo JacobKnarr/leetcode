@@ -5,11 +5,14 @@ const {
 } = require("./trees/binary");
 
 /**
+ * Given the roots of two binary trees, determine if they are equal.
+ * https://leetcode.com/problems/same-tree/description/
+ * 
  * @param {TreeNode} p Tree root 1
  * @param {TreeNode} q Tree root 2
  * @return {boolean} True if trees are identical, otherwise false
  */
-var isSameTree = function(p, q) {
+function isSameTree(p, q) {
     // matching leaf
     if (!p && !q) return true;
 

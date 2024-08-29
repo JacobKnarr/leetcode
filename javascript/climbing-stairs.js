@@ -1,10 +1,13 @@
 const { runTests } = require("./test/runners"); 
 
 /**
- * @param {number} n
- * @return {number}
+ * Determine the number of ways to climb n stair in steps of 1 and/or 2.
+ * https://leetcode.com/problems/climbing-stairs/description/
+ * 
+ * @param {number} n The number of stairs
+ * @return {number} The number of ways to climb the stairs
  */
-var climbStairs = function(n) {
+function climbStairs(n) {
     const cache = new Array(n+1).fill(-1);
     cache[0] = 0;
     cache[1] = 1;

@@ -1,30 +1,13 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {number} x
- * @return {boolean}
+ * Determine if an integer is a palindrome.
+ * https://leetcode.com/problems/two-sum/description/
+ * 
+ * @param {number} x The number to validate
+ * @return {boolean} True if x is a palidrome, false otherwise.
  */
-var isPalindrome = function(x) {
-    // String Solution 1
-    // const inputStr = x.toString();
-    // let start = 0;
-    // let end = inputStr.length - 1;
-
-
-    // while (start < end) {
-    //     if (inputStr.charAt(start) != inputStr.charAt(end)) {
-    //         return false;
-    //     }
-    //     start++;
-    //     end--;
-    // }
-
-    // return true;
-
-    // String Solution 2
-    // return x === +x.toString().split("").reverse().join("");
-
-    // Number Solution
+function isPalindrome(x) {
     let reverse = 0;
     let copy = x;
 
@@ -38,6 +21,26 @@ var isPalindrome = function(x) {
 
     return reverse === x;
 };
+
+function isPalindromeToString(x) {
+    const inputStr = x.toString();
+    let start = 0;
+    let end = inputStr.length - 1;
+
+    while (start < end) {
+        if (inputStr.charAt(start) != inputStr.charAt(end)) {
+            return false;
+        }
+        start++;
+        end--;
+    }
+
+    return true;
+}
+
+function isPalindromeToStringSimple(x) {
+    return x === +x.toString().split("").reverse().join("");
+}
 
 
 const tests = [
@@ -62,3 +65,5 @@ const tests = [
 ];
 
 runTests(tests, isPalindrome);
+runTests(tests, isPalindromeToString);
+runTests(tests, isPalindromeToStringSimple);

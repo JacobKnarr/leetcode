@@ -4,9 +4,13 @@ const {
 } = require("./trees/binary");
 
 /**
- * @param {TreeNode} root The binary tree root node.
- * @param {number} targetSum The target sum to find within a path.
- * @return {boolean} True if a root-to-leaf tree path sums to the target, false otherwise.
+ * Given the root of binary tree and a target integer,
+ * determine if the tree has a root-to-leaf path that sums to the target.
+ * https://leetcode.com/problems/path-sum/description/
+ * 
+ * @param {TreeNode} root The binary tree root node
+ * @param {number} targetSum The target sum to find within a path
+ * @return {boolean} True if a root-to-leaf tree path sums to the target, false otherwise
  */
 function hasPathSum(root, targetSum) {
     // Past leaf w/o reaching target sum

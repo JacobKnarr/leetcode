@@ -6,10 +6,13 @@ const {
 } = require("./linked-lists/singly-linked");
 
 /**
- * @param {ListNode} head
- * @return {ListNode}
+ * Given the head of a sorted linked list, remove all duplicates.
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+ * 
+ * @param {ListNode} head The head of the sorted linked list
+ * @return {ListNode} The head of the sorted distinct linked list
  */
-var deleteDuplicates = function(head) {
+function deleteDuplicates(head) {
     if (!head || !head.next) return head;
 
     let current = head;

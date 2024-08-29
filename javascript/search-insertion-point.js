@@ -1,11 +1,16 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
+ * Given a sorted array of distinct integers and a target value,
+ * return the index of either, where the target is found,
+ * or where it would be if inserted in order.
+ * https://leetcode.com/problems/search-insert-position/description/
+ * 
+ * @param {number[]} nums The sorted array of distinct integers
+ * @param {number} target The target value to find insertion point for
+ * @return {number} The index of the target value or its insertion point
  */
-const searchInsert = function(nums, target) {
+function searchInsert(nums, target) {
     let left = 0;
     let right = nums.length - 1;
 
@@ -25,7 +30,7 @@ const searchInsert = function(nums, target) {
     return left;
 };
 
-const searchInsertRecusive = (nums, target) => {
+function searchInsertRecusive(nums, target) {
 
     const recurse = (left, right) => {
         if (left > right) {

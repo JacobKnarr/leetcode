@@ -1,10 +1,14 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {string} s
- * @return {number}
+ * Given a string consisting of words and spaces, determine the
+ * length of the last word in said string.
+ * https://leetcode.com/problems/length-of-last-word/description/
+ * 
+ * @param {string} s The string to check
+ * @return {number} The length of the last word in the given string
  */
-var lengthOfLastWord = function(s) {
+function lengthOfLastWord(s) {
     let count = 0;
     let position = s.length - 1;
 

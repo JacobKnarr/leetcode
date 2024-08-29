@@ -1,54 +1,37 @@
 const { runTests } = require("./test/runners");
 
 /**
- * @param {string} s
- * @return {number}
+ * Convert a given roman numeral to its integer value.
+ * https://leetcode.com/problems/roman-to-integer/description/
+ * 
+ * @param {string} s The roman numeral string
+ * @return {number} The integer value of s
  */
-var romanToInt = function(s) {
-    let index = s.length;
+function romanToInt(s) {
     let last = null;
+    let current = null;
     let total = 0;
 
-    while(index--) {
-        switch(s[index]) {
-            case 'I':
-                if (last === 'V' || last === 'X') {
-                    total--;
-                } else {
-                    total++;
-                }
-                break;
-            case 'V':
-                total += 5;
-                break;
-            case 'X':
-                if (last === 'L' || last === 'C') {
-                    total -= 10;
-                } else {
-                    total += 10;
-                }
-                break;
-            case 'L':
-                total += 50;
-                break;
-            case 'C':
-                if (last === 'D' || last === 'M') {
-                    total -= 100;
-                } else {
-                    total += 100;
-                }
-                break;
-            case 'D':
-                total += 500;
-                break;
-            case 'M':
-                total += 1000;
-                break;
-            default:
-                throw new Error("Invalid Roman Numeral");
+    const numerals = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+
+    for (let index = s.length - 1; index >= 0; index--) {
+        current = numerals[s[index]];
+
+        if (current < last) {
+            total -= current;
+        } else {
+            total += current;
         }
 
-        last = s[index];
+        last = current;
     }
 
     return total;

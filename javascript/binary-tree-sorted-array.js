@@ -6,6 +6,9 @@ const {
 } = require("./trees/binary");
 
 /**
+ * Given a ascending sorted array of integers, convert it into a height-balanced binary search tree.
+ * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/
+ * 
  * @param {TreeNode} root Tree root
  * @return {boolean} True if children trees are symmetric, otherwise false
  */

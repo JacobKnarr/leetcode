@@ -5,9 +5,11 @@ const {
 } = require("./trees/binary");
 
 /**
- * A height-balanced binary tree is a binary tree in which
- * the depth of the two subtrees of every node
- * never differs by more than one.
+ * Given the root of a binary tree, determine if it is height balanced.
+ * https://leetcode.com/problems/balanced-binary-tree/description/
+ * 
+ * A height-balanced binary tree is a binary tree in which the depth
+ * of the two subtrees of every node never differs by more than one.
  * 
  * @param {TreeNode} root Tree root
  * @return {boolean} True if children trees are balanced, otherwise false
