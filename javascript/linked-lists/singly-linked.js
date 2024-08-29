@@ -37,9 +37,34 @@ function listToArray(list) {
     return result;
 }
 
+/**
+ * @param {ListNode} head The linked list head
+ * @param {number} position The position to add the cycle
+ * @return {ListNode} The linked list head
+ */
+function addCycle(head, position) {
+    if (!head) return head;
+    
+    let current = head;
+    let node = null;
+
+    while (current.next) {
+        if (position-- === 0) {
+            node = current;
+        }
+
+        current = current.next;
+    }
+
+    current.next = node;
+
+    return head;
+}
+
 
 module.exports = {
     ListNode,
     arrayToList,
-    listToArray
+    listToArray,
+    addCycle
 };
